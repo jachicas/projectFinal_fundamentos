@@ -32,7 +32,7 @@ int main()
         cout << "Ingrese la cantidad de productos que comprara" << endl;
         cin >> cantidadArticulos;
     }
-    // Se declara el array y se crea un puntero de tipo struct costoPorArticulo 
+    // Se declara el array y se crea un puntero de tipo struct costoPorArticulo
     costoPorArticulo *articulos = new costoPorArticulo[cantidadArticulos];
     /*
         Se llama a la funcion para agregar y
@@ -45,7 +45,13 @@ int main()
         Imprimiendo el coste total llamando a la funcion suma()
         setprecision() y fixed son funciones traidas de la libreria iomanip
     */
-    cout << "\n \t ---- El coste total de la compra es de $" << setprecision(2) << fixed << suma(articulos, cantidadArticulos) << " ----" << endl << endl;
+    cout << "\n \t ---- El coste total de la compra es de $" 
+         << setprecision(2)
+         << fixed
+         << suma(articulos, cantidadArticulos)
+         << " ----"
+         << endl
+         << endl;
     // Pidiendo al usuario si desea hacer una nueva compra o salir
     cout << "Desea realizar una nueva compra? \n 1) Si \n 0) No" << endl;
     cin >> opcion;
@@ -56,7 +62,8 @@ int main()
     }
     else
     {
-        cout << "\n \t -- Gracias por su compra, los esperamos pronto --" << endl << endl;
+        cout << "\n \t -- Gracias por su compra, los esperamos pronto --" << endl
+             << endl;
         return 0;
     }
 }
@@ -82,14 +89,17 @@ void addArticulo(costoPorArticulo *dato, int cantidadArticulos)
 void showArticulo(costoPorArticulo *dato, int cantidadArticulos)
 {
     cout << "\t\t\t-- Detalle de productos --\n\n";
-    cout << "\t|Nombre \t" << "|Cantidad \t" << "|Precio \t" << "|Costo por Articulo \n"; 
+    cout << "\t|Nombre \t"
+         << "|Cantidad \t"
+         << "|Precio \t"
+         << "|Costo por Articulo \n";
     cout << "\t------------------------------------------------------------------------- \n";
     for (int i = 0; i < cantidadArticulos; i++)
     {
         cout << "\t|" << (dato + i)->nombreArticul << "\t \t|"
              << (dato + i)->cantidad << "\t \t|"
              << setprecision(2) << fixed << (dato + i)->precio << "\t \t|"
-             << setprecision(2) << fixed << (dato + i)->costoPorArticulo << "\n" ;
+             << setprecision(2) << fixed << (dato + i)->costoPorArticulo << "\n";
     }
 }
 
